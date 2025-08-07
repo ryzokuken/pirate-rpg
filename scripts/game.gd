@@ -17,3 +17,7 @@ func toggle_pause():
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		toggle_pause()
+
+func act_tile(type: String, data: TileData) -> void:
+	if type == "crate" or type == "chest" or type == "barrel":
+		print("BAG", data)

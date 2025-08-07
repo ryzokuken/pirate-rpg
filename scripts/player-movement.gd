@@ -7,9 +7,16 @@ extends StaticBody2D
 
 const ACTIONS = {
 	"chest": "open",
+	"crate": "open",
+	"barrel": "open",
 	"key": "pick",
 	"map": "pick",
-	"barrel": "steal"
+	"bottle": "pick",
+	"weapon": "pick",
+	"sailor": "talk",
+	"captain": "talk",
+	"merchant": "trade",
+	"boat": "board"
 }
 
 var target_position: Vector2
@@ -56,5 +63,7 @@ func get_player_input():
 					var type = tile_data.get_custom_data("type")
 					if type and ACTIONS.has(type):
 						prompt.update(ACTIONS[type], next_target - prompt.size / 4)
+						if Input.is_action_pressed("action"):
+							get_parent().act_tile(type, tile_data)
 		else:
 			target_position = next_target
