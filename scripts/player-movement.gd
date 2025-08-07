@@ -48,8 +48,6 @@ func get_player_input():
 				if tile_data and prompt:
 					var type = tile_data.get_custom_data("type")
 					if type:
-						prompt.update_text(type)
-						prompt.position = next_target - prompt.size / 2
-						prompt.show()
+						prompt.update(type, next_target - prompt.size / 2)
 		else:
 			target_position = next_target
