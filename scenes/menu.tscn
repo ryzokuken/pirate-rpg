@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://booxtiocpuise"]
+[gd_scene load_steps=7 format=3 uid="uid://booxtiocpuise"]
 
 [ext_resource type="Texture2D" uid="uid://ba80cqgv4jlni" path="res://sprites/kenney_ui-pack-rpg-expansion/PNG/panel_brown.png" id="1_con2f"]
-[ext_resource type="Texture2D" uid="uid://dskuetbrtqb22" path="res://sprites/kenney_ui-pack-rpg-expansion/PNG/buttonSquare_brown.png" id="2_mhnvy"]
-[ext_resource type="Texture2D" uid="uid://ctvdjefmg3krb" path="res://sprites/kenney_ui-pack-rpg-expansion/PNG/buttonSquare_brown_pressed.png" id="3_4ytvr"]
+[ext_resource type="Script" uid="uid://dhgdsj6c6mmpa" path="res://scripts/menu.gd" id="1_mhnvy"]
+[ext_resource type="Texture2D" uid="uid://djxngaqa7pjex" path="res://sprites/kenney_ui-pack-rpg-expansion/PNG/buttonLong_brown.png" id="2_con2f"]
+[ext_resource type="Texture2D" uid="uid://gphxsaa7rlum" path="res://sprites/kenney_ui-pack-rpg-expansion/PNG/buttonLong_brown_pressed.png" id="3_mhnvy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_con2f"]
 font_size = 32
@@ -11,29 +12,41 @@ font_size = 32
 font_size = 20
 
 [node name="Menu" type="CanvasLayer"]
+process_mode = 2
+script = ExtResource("1_mhnvy")
 
 [node name="Container" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = -156.0
+offset_right = -112.0
+offset_bottom = -156.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
 
-[node name="Background" type="TextureRect" parent="Container"]
+[node name="Background" type="NinePatchRect" parent="Container"]
 layout_mode = 0
-offset_left = 384.0
-offset_top = 64.0
-offset_right = 640.0
-offset_bottom = 384.0
+offset_right = 224.0
+offset_bottom = 312.0
 texture = ExtResource("1_con2f")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
 
 [node name="Label" type="Label" parent="Container/Background"]
 layout_mode = 0
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 240.0
-offset_bottom = 64.0
+offset_right = 208.0
+offset_bottom = 48.0
 text = "Menu"
 label_settings = SubResource("LabelSettings_con2f")
 horizontal_alignment = 1
@@ -41,16 +54,16 @@ vertical_alignment = 1
 
 [node name="Options" type="VBoxContainer" parent="Container"]
 layout_mode = 0
-offset_left = 416.0
-offset_top = 128.0
-offset_right = 608.0
-offset_bottom = 368.0
+offset_left = 16.0
+offset_top = 48.0
+offset_right = 208.0
+offset_bottom = 300.0
 
 [node name="Resume" type="TextureButton" parent="Container/Options"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-texture_normal = ExtResource("2_mhnvy")
-texture_pressed = ExtResource("3_4ytvr")
+texture_normal = ExtResource("2_con2f")
+texture_pressed = ExtResource("3_mhnvy")
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="Container/Options/Resume"]
@@ -67,14 +80,14 @@ label_settings = SubResource("LabelSettings_mhnvy")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Quit" type="TextureButton" parent="Container/Options"]
+[node name="Stats" type="TextureButton" parent="Container/Options"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-texture_normal = ExtResource("2_mhnvy")
-texture_pressed = ExtResource("3_4ytvr")
+texture_normal = ExtResource("2_con2f")
+texture_pressed = ExtResource("3_mhnvy")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="Container/Options/Quit"]
+[node name="Label" type="Label" parent="Container/Options/Stats"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -88,14 +101,35 @@ label_settings = SubResource("LabelSettings_mhnvy")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Quit2" type="TextureButton" parent="Container/Options"]
+[node name="Settings" type="TextureButton" parent="Container/Options"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-texture_normal = ExtResource("2_mhnvy")
-texture_pressed = ExtResource("3_4ytvr")
+texture_normal = ExtResource("2_con2f")
+texture_pressed = ExtResource("3_mhnvy")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="Container/Options/Quit2"]
+[node name="Label" type="Label" parent="Container/Options/Settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 8.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Settings"
+label_settings = SubResource("LabelSettings_mhnvy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="TextureButton" parent="Container/Options"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+texture_normal = ExtResource("2_con2f")
+texture_pressed = ExtResource("3_mhnvy")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Container/Options/Quit"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -108,3 +142,6 @@ text = "Quit"
 label_settings = SubResource("LabelSettings_mhnvy")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="pressed" from="Container/Options/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Container/Options/Quit" to="." method="_on_quit_pressed"]

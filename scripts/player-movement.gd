@@ -1,9 +1,16 @@
-extends CharacterBody2D
+extends StaticBody2D
 
 @export var TILE_SIZE: int = 16
 @export var move_speed: float = 120.0
 
-@export var prompt: PanelContainer
+@export var prompt: Container
+
+const ACTIONS = {
+	"chest": "open",
+	"key": "pick",
+	"map": "pick",
+	"barrel": "steal"
+}
 
 var target_position: Vector2
 var is_moving: bool = false
@@ -45,9 +52,9 @@ func get_player_input():
 			if collider is TileMapLayer:
 				var tile_coords = collider.local_to_map(next_target)
 				var tile_data = collider.get_cell_tile_data(tile_coords)
-				if tile_data and prompt:
+				if tile_data:
 					var type = tile_data.get_custom_data("type")
-					if type:
-						prompt.update(type, next_target - prompt.size / 2)
+					if type and ACTIONS.has(type):
+						prompt.update(ACTIONS[type], next_target - prompt.size / 4)
 		else:
 			target_position = next_target
