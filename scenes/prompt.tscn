@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2j6mv0lrsrql"]
+
+[ext_resource type="Script" uid="uid://dmjsg0se3te0y" path="res://scripts/prompt.gd" id="1_0xlvs"]
+[ext_resource type="FontFile" uid="uid://d4ewsuqeqadbe" path="res://fonts/Kenney Mini.ttf" id="2_b70cq"]
+[ext_resource type="Texture2D" uid="uid://tqnvt37ve8w3" path="res://sprites/kenney_1-bit-input-prompts-pixel-16/Tiles (White)/tile_0087.png" id="3_2hydr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0xlvs"]
+line_spacing = 2.0
+font = ExtResource("2_b70cq")
+font_size = 8
+
+[node name="Prompt" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -8.0
+offset_right = 14.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+script = ExtResource("1_0xlvs")
+
+[node name="Container" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Container"]
+layout_mode = 2
+texture = ExtResource("3_2hydr")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="Container"]
+layout_mode = 2
+text = "Text"
+label_settings = SubResource("LabelSettings_0xlvs")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true

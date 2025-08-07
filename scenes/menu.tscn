@@ -1,0 +1,110 @@
+[gd_scene load_steps=6 format=3 uid="uid://booxtiocpuise"]
+
+[ext_resource type="Texture2D" uid="uid://ba80cqgv4jlni" path="res://sprites/kenney_ui-pack-rpg-expansion/PNG/panel_brown.png" id="1_con2f"]
+[ext_resource type="Texture2D" uid="uid://dskuetbrtqb22" path="res://sprites/kenney_ui-pack-rpg-expansion/PNG/buttonSquare_brown.png" id="2_mhnvy"]
+[ext_resource type="Texture2D" uid="uid://ctvdjefmg3krb" path="res://sprites/kenney_ui-pack-rpg-expansion/PNG/buttonSquare_brown_pressed.png" id="3_4ytvr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_con2f"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_mhnvy"]
+font_size = 20
+
+[node name="Menu" type="CanvasLayer"]
+
+[node name="Container" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="Container"]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 64.0
+offset_right = 640.0
+offset_bottom = 384.0
+texture = ExtResource("1_con2f")
+
+[node name="Label" type="Label" parent="Container/Background"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 240.0
+offset_bottom = 64.0
+text = "Menu"
+label_settings = SubResource("LabelSettings_con2f")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Options" type="VBoxContainer" parent="Container"]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 128.0
+offset_right = 608.0
+offset_bottom = 368.0
+
+[node name="Resume" type="TextureButton" parent="Container/Options"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+texture_normal = ExtResource("2_mhnvy")
+texture_pressed = ExtResource("3_4ytvr")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Container/Options/Resume"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 8.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Resume"
+label_settings = SubResource("LabelSettings_mhnvy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="TextureButton" parent="Container/Options"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+texture_normal = ExtResource("2_mhnvy")
+texture_pressed = ExtResource("3_4ytvr")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Container/Options/Quit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 8.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Stats"
+label_settings = SubResource("LabelSettings_mhnvy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit2" type="TextureButton" parent="Container/Options"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+texture_normal = ExtResource("2_mhnvy")
+texture_pressed = ExtResource("3_4ytvr")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Container/Options/Quit2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 8.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+label_settings = SubResource("LabelSettings_mhnvy")
+horizontal_alignment = 1
+vertical_alignment = 1
