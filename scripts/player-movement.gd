@@ -16,7 +16,9 @@ const ACTIONS = {
 	"sailor": "talk",
 	"captain": "talk",
 	"merchant": "trade",
-	"boat": "board"
+	"boat": "board",
+	"door": "enter",
+	"sign": "read"
 }
 
 var target_position: Vector2
@@ -64,6 +66,6 @@ func get_player_input():
 					if type and ACTIONS.has(type):
 						prompt.update(ACTIONS[type], next_target - prompt.size / 4)
 						if Input.is_action_pressed("action"):
-							get_parent().act_tile(type, tile_data)
+							get_parent().act_tile(type, tile_coords)
 		else:
 			target_position = next_target

@@ -1,15 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://booxtiocpuise"]
+[gd_scene load_steps=8 format=3 uid="uid://booxtiocpuise"]
 
 [ext_resource type="Script" uid="uid://dhgdsj6c6mmpa" path="res://scripts/menu.gd" id="1_mhnvy"]
 [ext_resource type="Texture2D" uid="uid://djxngaqa7pjex" path="res://sprites/kenney_ui-pack-rpg-expansion/PNG/buttonLong_brown.png" id="2_con2f"]
 [ext_resource type="Texture2D" uid="uid://drsqvtwd2f3eh" path="res://sprites/kenney_ui-pack-pixel-adventure/Tiles/Large tiles/Thick outline/tile_0001.png" id="2_mhnvy"]
+[ext_resource type="FontFile" uid="uid://d4ewsuqeqadbe" path="res://fonts/Kenney Mini.ttf" id="3_4ytvr"]
 [ext_resource type="Texture2D" uid="uid://gphxsaa7rlum" path="res://sprites/kenney_ui-pack-rpg-expansion/PNG/buttonLong_brown_pressed.png" id="3_mhnvy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_con2f"]
+font = ExtResource("3_4ytvr")
 font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_mhnvy"]
-font_size = 20
+font = ExtResource("3_4ytvr")
+font_size = 24
 
 [node name="Menu" type="CanvasLayer"]
 process_mode = 2
