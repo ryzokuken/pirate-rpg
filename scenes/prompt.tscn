@@ -14,6 +14,9 @@ offset_bottom = 16.0
 mouse_filter = 2
 script = ExtResource("1_0xlvs")
 
+[node name="HideTimer" type="Timer" parent="."]
+one_shot = true
+
 [node name="Container" type="HBoxContainer" parent="."]
 layout_mode = 2
 alignment = 1
@@ -33,8 +36,5 @@ label_settings = SubResource("LabelSettings_0xlvs")
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
-
-[node name="HideTimer" type="Timer" parent="."]
-one_shot = true
 
 [connection signal="timeout" from="HideTimer" to="." method="_on_hide_timer_timeout"]

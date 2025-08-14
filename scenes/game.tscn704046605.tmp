@@ -1069,10 +1069,11 @@ sources/1 = SubResource("TileSetAtlasSource_vtaks")
 [node name="Game" type="Node2D"]
 script = ExtResource("1_p57ef")
 
-[node name="Player" type="StaticBody2D" parent="."]
+[node name="Player" type="StaticBody2D" parent="." node_paths=PackedStringArray("prompt")]
 z_index = 1
-position = Vector2(319, -153)
+position = Vector2(8, 8)
 script = ExtResource("1_lbhrr")
+prompt = NodePath("../Prompt")
 
 [node name="Graphics" type="Sprite2D" parent="Player"]
 z_index = 1
@@ -1110,4 +1111,3 @@ scale = Vector2(0.5, 0.5)
 visible = false
 
 [node name="Sign" parent="." instance=ExtResource("8_gee14")]
-visible = false

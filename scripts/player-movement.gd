@@ -3,30 +3,15 @@ extends StaticBody2D
 @export var TILE_SIZE: int = 16
 @export var move_speed: float = 120.0
 
-@export var prompt: Container
-
-const ACTIONS = {
-	"chest": "open",
-	"crate": "open",
-	"barrel": "open",
-	"key": "pick",
-	"map": "pick",
-	"bottle": "pick",
-	"weapon": "pick",
-	"sailor": "talk",
-	"captain": "talk",
-	"merchant": "trade",
-	"boat": "board",
-	"door": "enter",
-	"sign": "read"
-}
-
+var prompt: PanelContainer
 var target_position: Vector2
 var is_moving: bool = false
 
 func _ready():
-	position = position.snapped(Vector2(TILE_SIZE, TILE_SIZE))
-	position += Vector2(TILE_SIZE / 2.0, TILE_SIZE / 2.0)
+	prompt = get_parent().get_node("Prompt")
+	var tile_v2 = Vector2i(TILE_SIZE, TILE_SIZE)
+	position = position.snapped(tile_v2)
+	position += Vector2(tile_v2 / 2)
 	target_position = position
 
 func _physics_process(delta: float):
@@ -52,19 +37,19 @@ func get_player_input():
 		
 	if input_direction != Vector2.ZERO:
 		var next_target = position + input_direction * TILE_SIZE
-		var result = get_world_2d().direct_space_state.intersect_ray(
+		var obstacle = get_world_2d().direct_space_state.intersect_ray(
 			PhysicsRayQueryParameters2D.create(position, next_target)
 		)
 
-		if result:
-			var collider = result.collider
+		if obstacle:
+			var collider = obstacle.collider
 			if collider is TileMapLayer:
 				var tile_coords = collider.local_to_map(next_target)
 				var tile_data = collider.get_cell_tile_data(tile_coords)
 				if tile_data:
 					var type = tile_data.get_custom_data("type")
-					if type and ACTIONS.has(type):
-						prompt.update(ACTIONS[type], next_target - prompt.size / 4)
+					if type:
+						prompt.update(type, next_target)
 						if Input.is_action_pressed("action"):
 							get_parent().act_tile(type, tile_coords)
 		else:
