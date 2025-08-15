@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwgp22nbmajk4"]
+
+[ext_resource type="Script" uid="uid://b7243kpia7owk" path="res://scripts/player-movement.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://bphy6rkp5y3et" path="res://sprites/kenney_monochrome-pirates/Default/Tiles/tile_0126.png" id="2_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://b2j6mv0lrsrql" path="res://scenes/prompt.tscn" id="3_qhqgy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1kc1q"]
+size = Vector2(16, 16)
+
+[node name="Player" type="StaticBody2D"]
+z_index = 1
+script = ExtResource("1_g2els")
+
+[node name="Graphics" type="Sprite2D" parent="."]
+texture = ExtResource("2_qhqgy")
+
+[node name="Box" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1kc1q")
+
+[node name="Camera" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+
+[node name="Prompt" parent="." instance=ExtResource("3_qhqgy")]
+z_index = 2
+offset_left = 10.0
+offset_right = 48.0
+scale = Vector2(0.5, 0.5)

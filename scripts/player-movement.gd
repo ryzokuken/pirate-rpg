@@ -2,13 +2,12 @@ extends StaticBody2D
 
 @export var TILE_SIZE: int = 16
 @export var move_speed: float = 120.0
+@onready var prompt = $Prompt
 
-var prompt: PanelContainer
 var target_position: Vector2
 var is_moving: bool = false
 
 func _ready():
-	prompt = get_parent().get_node("Prompt")
 	var tile_v2 = Vector2i(TILE_SIZE, TILE_SIZE)
 	position = position.snapped(tile_v2)
 	position += Vector2(tile_v2 / 2)

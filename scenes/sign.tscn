@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://i3kl7ght53dk"]
 
 [ext_resource type="Script" uid="uid://cqypc40i200e" path="res://scripts/sign.gd" id="1_shbub"]
-[ext_resource type="FontFile" uid="uid://d4ewsuqeqadbe" path="res://fonts/Kenney Mini.ttf" id="3_ge2pc"]
+[ext_resource type="FontFile" uid="uid://cim6s8x2rqf3u" path="res://fonts/Kenney Pixel.ttf" id="2_kd50q"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qkam6"]
-font = ExtResource("3_ge2pc")
+font = ExtResource("2_kd50q")
 font_size = 32
 
 [node name="Sign" type="CanvasLayer"]
@@ -18,8 +18,8 @@ one_shot = true
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -20.0
-offset_right = 94.0
+offset_top = -40.0
+offset_right = 200.0
 grow_vertical = 0
 
 [node name="Label" type="Label" parent="Container"]
@@ -27,5 +27,7 @@ z_index = 1
 layout_mode = 2
 text = "Hello World"
 label_settings = SubResource("LabelSettings_qkam6")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="timeout" from="HideTimer" to="." method="_on_hide_timer_timeout"]
