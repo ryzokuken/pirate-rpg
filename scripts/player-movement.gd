@@ -50,6 +50,6 @@ func get_player_input():
 					if type:
 						prompt.update(type, next_target)
 						if Input.is_action_pressed("action"):
-							get_parent().act_tile(type, tile_coords)
+							get_node("../Game").act_tile(type, tile_coords)
 		else:
 			target_position = next_target

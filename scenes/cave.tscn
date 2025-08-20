@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=4 uid="uid://boktwjfpt5gkq"]
+[gd_scene load_steps=4 format=4 uid="uid://boktwjfpt5gkq"]
 
 [ext_resource type="TileSet" uid="uid://cbi4qdxcdai7f" path="res://tilesets/pirate.tres" id="1_w6v1y"]
 [ext_resource type="PackedScene" uid="uid://bwgp22nbmajk4" path="res://scenes/player.tscn" id="2_w2l0f"]
+[ext_resource type="PackedScene" uid="uid://bymkfwf1d406v" path="res://scenes/game.tscn" id="3_rawnq"]
 
 [node name="Cave" type="Node2D"]
 
@@ -15,5 +16,13 @@ tile_map_data = PackedByteArray("AAD///7/AAAAAAAAAAD/////AAABAAAAAAD//wAAAAABAAA
 tile_set = ExtResource("1_w6v1y")
 
 [node name="Objects" type="TileMapLayer" parent="Map"]
-tile_map_data = PackedByteArray("AAACAP7/AAAIAAYAAAD+//3/AAAIAAYAAAAAAAQAAAAIAAYAAAAGABEAAAAIAAYAAAD6/xcAAAAIAAYAAAAFABkAAAAIAAYAAAAPABEAAAAIAAYAAAAMABcAAAAIAAYAAAD5/xIAAAAHAAYAAAD//xkAAAAHAAYAAAABABQAAAAHAAYAAAACABYAAAAHAAYAAAALABIAAAAHAAYAAAACAAIAAAAHAAYAAAD8/wAAAAAHAAYAAAD2/xQAAAAEAAcAAAACABkAAAAIAAUAAAAIABUAAAAGAAUAAAAIABYAAAAGAAYAAAARABUAAAACAAUAAAAIABgAAAACAAcAAAASABgAAAACAAcAAAD3/xgAAAAQAAcAAAAPABQAAAAQAAcAAAAPABgAAAAQAAcAAAD5/xcAAAAPAAYAAAD8/xoAAAAQAAYAAAA=")
+tile_map_data = PackedByteArray("AAACAP7/AAAIAAYAAAD+//3/AAAIAAYAAAAAAAQAAAAIAAYAAAAGABEAAAAIAAYAAAD6/xcAAAAIAAYAAAAFABkAAAAIAAYAAAAPABEAAAAIAAYAAAAMABcAAAAIAAYAAAD5/xIAAAAHAAYAAAD//xkAAAAHAAYAAAABABQAAAAHAAYAAAACABYAAAAHAAYAAAALABIAAAAHAAYAAAACAAIAAAAHAAYAAAD8/wAAAAAHAAYAAAD2/xQAAAAEAAcAAAACABkAAAAIAAUAAAAIABYAAAAGAAYAAAARABUAAAACAAUAAAAIABgAAAACAAcAAAASABgAAAACAAcAAAD3/xgAAAAQAAcAAAAPABQAAAAQAAcAAAAPABgAAAAQAAcAAAD5/xcAAAAPAAYAAAD8/xoAAAAQAAYAAAA=")
 tile_set = ExtResource("1_w6v1y")
+
+[node name="Sky" type="TileMapLayer" parent="Map"]
+z_index = 2
+tile_map_data = PackedByteArray("AAAIABUAAAAGAAUAAAA=")
+tile_set = ExtResource("1_w6v1y")
+collision_enabled = false
+
+[node name="Game" parent="." instance=ExtResource("3_rawnq")]
